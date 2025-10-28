@@ -1,0 +1,10 @@
+{
+  "name": "LocalNote-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/LocalNote-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["LocalNote"],
+  "// targets": "to see all targets run: nx show project LocalNote-e2e --web",
+  "targets": {}
+}
