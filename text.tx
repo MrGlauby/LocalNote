@@ -1,0 +1,21 @@
+├── apps/
+│   └── localnote/              # NUR Bootstrap & Routing
+│       └── src/
+│           ├── main.ts
+│           └── app/
+│               ├── app.routes.ts
+│               └── app.config.ts
+│
+├── libs/
+│   └── localnote/
+│       ├── feature-dashboard/   # Smart Components hier!
+│       │   └── src/lib/
+│       │       └── dashboard.component.ts
+│       │
+│       ├── data-access/         # Services & Stores
+│       │   └── src/lib/
+│       │       └── notes.store.ts
+│       │
+│       └── ui/                  # Dumb Components
+│           └── src/lib/
+│               └── radio-button/
