@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Pixelletters';
+  src: url('./assets/fonts/Pixellettersfull-BnJ5.woff2') format('woff2');
+}
+
+body {
+  font-family: 'Pixelletters', monospace;
+  font-size: 18px;  // Base-Größe für body
+}
+
+h1 { 
+  font-size: 32px; 
+}
+
+p { 
+  font-size: 18px; 
+}
