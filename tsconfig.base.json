@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@local-note/dashboard": ["libs/localnote/dashboard/src/index.ts"]
+      "@local-note/dashboard": ["libs/localnote/dashboard/src/index.ts"],
+      "@local-note/button": ["libs/localnote/ui/control/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
