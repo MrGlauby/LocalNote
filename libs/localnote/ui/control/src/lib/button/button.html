@@ -2,13 +2,15 @@
 
 
 
-
 <button 
   class="nl-button nl-button-{{ variant() }}"
   [class.nl-button-disabled]="disabled()"
   [disabled]="disabled()"
+  [type]="type()"
   (click)="onClick($event)"
-  type="button"
 >
   {{ label() }}
 </button>
+
+
+
