@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@local-note/dashboard": ["libs/localnote/dashboard/src/index.ts"],
-      "@local-note/button": ["libs/localnote/ui/control/src/index.ts"]
+      "@local-note/button": ["libs/localnote/ui/control/src/index.ts"],
+      "@local-note/notes-create": ["libs/localnote/feature/notes-create/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
