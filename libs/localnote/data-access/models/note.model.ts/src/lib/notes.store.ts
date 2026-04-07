@@ -11,6 +11,7 @@ const initialState: NoteState = {
 };
 
 export const NoteSignalStore = signalStore(
+  { providedIn: 'root' },
   withState(initialState),
 
   withMethods((store) => ({
@@ -24,13 +25,11 @@ export const NoteSignalStore = signalStore(
       patchState(store, (state) => ({
         notes: state.notes.filter((n) => n.id !== noteId),
       }));
-      
     },
 
-    deleteAllNotes(){
-      patchState(store, {notes: [] });
+    deleteAllNotes() {
+      patchState(store, { notes: [] });
     },
-
 
     // update note ersetzt nicht das ganze objekt sondern nur bestimmte "Felder"
     updateNote(noteId: string, updatedNote: Note) {
@@ -44,11 +43,5 @@ export const NoteSignalStore = signalStore(
     getNoteById: computed(() => (id: string) => store.notes().find((n) => n.id === id)),
   }))
 );
-
-
-// clear all NOTES METHODE
-// AI Agent Client etc.. 
-
-
 
 

@@ -1,1 +1,2 @@
-export * from './lib/note.model.ts/note.model';
+export * from './lib/note.model';
+export * from './lib/notes.store';
