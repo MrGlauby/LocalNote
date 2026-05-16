@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Button } from '@local-note/button';
 import { NoteSignalStore } from '@local-note/note.model.ts';
 import { Note } from '@local-note/note.model.ts';
@@ -10,9 +11,11 @@ import { Note } from '@local-note/note.model.ts';
   imports: [Button],
 })
 export class NotesCreate {
+  private readonly router = inject(Router)
   store = inject(NoteSignalStore);
 
-  createClickNote() {
+  createClickNote() { 
+    console.log('create note link!')
     const newNote: Note = {
       id: crypto.randomUUID(),
       title: 'Neue Notiz',
@@ -22,5 +25,6 @@ export class NotesCreate {
     };
 
     this.store.createNote(newNote);
+    this.router.navigate(['/noteEditorDetail', newNote.id]);
   }
 }

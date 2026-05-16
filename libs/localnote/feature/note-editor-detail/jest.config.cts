@@ -1,15 +1,14 @@
-export default {
-  displayName: 'note.model.ts',
-  preset: '../../../../../jest.preset.js',
+module.exports = {
+  displayName: 'note-editor-detail',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../../../coverage/libs/localnote/data-access/models/note.model.ts',
-transform: {
+  coverageDirectory: '../../../../coverage/libs/localnote/feature/note-editor-detail',
+  transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
       {
         tsconfig: '<rootDir>/tsconfig.spec.json',
         stringifyContentPathRegex: '\\.(html|svg)$',
-        useESM: true, // <--- DAS ERGÄNZEN
       },
     ],
   },
@@ -20,7 +19,3 @@ transform: {
     'jest-preset-angular/build/serializers/html-comment',
   ],
 };
-
-
-
-// jest.config.ts

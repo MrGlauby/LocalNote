@@ -1,0 +1,26 @@
+@if (currentNote(); as note) {
+  <div class="editor-wrapper">
+
+    <!-- Titel Eingabe -->
+    <input 
+      type="text"
+      [value]="note.title"
+      (input)="updateTitle(t.value)"
+      #t 
+      placeholder="Titel der Notiz"/>
+
+    <!-- Inhalts Eingabe -->
+    <textarea 
+      [value]="note.content"
+      (input)="updateContent(c.value)"
+      #c
+      placeholder="Fang an zu schreiben...">
+    </textarea>
+
+  </div>
+} @else {
+  <p>Notiz wird gesucht oder existiert nicht.</p>
+}
+
+
+

@@ -1,18 +1,20 @@
 <p>Dashboard</p>
 
-<!-- Default ist Primary (muss nicht gesetzt werden) -->
 <nl-button label="Primary"></nl-button>
 
-<!-- Input 'variant' setzen -->
 <nl-button label="Secondary" variant="secondary"></nl-button>
 
-<!-- Input 'disabled' setzen (als Boolean binding) -->
 <nl-button label="Disabled" [disabled]="true"></nl-button>
 
 <p>Anzahl der Notizen: {{ noteCount() }}</p>
 
 @for (note of notes(); track note.id) {
-<div>{{ note.title }}</div>
+<div
+  [routerLink]="['/notes', note.id]"
+  style="cursor: pointer; padding: 5px; border-bottom: 1px solid #eee"
+>
+  {{ note.title || 'Unbekannte Notiz'}}
+</div>
 }
 
 <lib-notes-create></lib-notes-create>
