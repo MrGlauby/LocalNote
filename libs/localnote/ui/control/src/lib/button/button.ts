@@ -16,7 +16,7 @@ type = input <'button' | 'submit' | 'reset' >('button');
 
   protected stylingButton = computed(() => {
     const classes = ['nl-button', `nl-button-${this.variant()}`];
-    if (this.disabled()) classes.push('nl-disabled');
+    if (this.disabled()) classes.push('nl-button-disabled');
     return classes.join(' ');
   });
 

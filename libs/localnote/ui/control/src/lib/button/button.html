@@ -1,16 +1,8 @@
-
-
-
-
-<button 
-  class="nl-button nl-button-{{ variant() }}"
-  [class.nl-button-disabled]="disabled()"
+<button
+  [className]="stylingButton()"
   [disabled]="disabled()"
   [type]="type()"
   (click)="onClick($event)"
 >
   {{ label() }}
 </button>
-
-
-

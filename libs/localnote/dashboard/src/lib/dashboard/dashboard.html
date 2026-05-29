@@ -1,20 +1,22 @@
-<p>Dashboard</p>
+<main class="dashboard-wrapper">
+  <h1>Dashboard</h1>
 
-<nl-button label="Primary"></nl-button>
+  <p>Anzahl der Notizen: {{ noteCount() }}</p>
 
-<nl-button label="Secondary" variant="secondary"></nl-button>
-
-<nl-button label="Disabled" [disabled]="true"></nl-button>
-
-<p>Anzahl der Notizen: {{ noteCount() }}</p>
-
-@for (note of notes(); track note.id) {
-<div
-  [routerLink]="['/notes', note.id]"
-  style="cursor: pointer; padding: 5px; border-bottom: 1px solid #eee"
->
-  {{ note.title || 'Unbekannte Notiz'}}
-</div>
-}
-
-<lib-notes-create></lib-notes-create>
+  <nav aria-label="Notes">
+    <ul>
+      @for (note of notes(); track note.id) {
+      <li>
+        <a
+          [routerLink]="['/notes', note.id]"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          {{ note.title || 'Unbekannte Notiz'}}
+        </a>
+      </li>
+      }
+    </ul>
+  </nav>
+  <lib-notes-create></lib-notes-create>
+</main>
