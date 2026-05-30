@@ -14,8 +14,7 @@
     "@angular/router": "21.1.4",
     "@ngrx/signals": "^21.0.1",
     "opencode-ai": "^1.2.12",
-    "rxjs": "~7.8.0",
-    "zone.js": "0.16.0"
+    "rxjs": "~7.8.0"
   },
   "devDependencies": {
     "@angular-devkit/core": "21.1.4",

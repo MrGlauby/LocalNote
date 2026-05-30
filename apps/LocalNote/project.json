@@ -12,7 +12,7 @@
       "options": {
         "outputPath": "dist/apps/LocalNote",
         "browser": "apps/LocalNote/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [],
         "tsConfig": "apps/LocalNote/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
