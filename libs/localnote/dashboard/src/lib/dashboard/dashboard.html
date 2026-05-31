@@ -8,7 +8,7 @@
       @for (note of notes(); track note.id) {
       <li>
         <a
-          [routerLink]="['/notes', note.id]"
+          [routerLink]="['/noteEditorDetail', note.id]"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
         >

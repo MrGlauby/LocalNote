@@ -11,11 +11,11 @@ import { Note } from '@local-note/note.model.ts';
   imports: [Button],
 })
 export class NotesCreate {
-  private readonly router = inject(Router)
+  private readonly router = inject(Router);
   store = inject(NoteSignalStore);
 
-  createClickNote() { 
-    console.log('create note link!')
+  createClickNote() {
+    console.log('create note link!');
     const newNote: Note = {
       id: crypto.randomUUID(),
       title: 'Neue Notiz',
@@ -25,6 +25,9 @@ export class NotesCreate {
     };
 
     this.store.createNote(newNote);
-    this.router.navigate(['/noteEditorDetail', newNote.id]);
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['/noteEditorDetail', newNote.id])
+    );
+    window.open(url, '_blank');
   }
 }

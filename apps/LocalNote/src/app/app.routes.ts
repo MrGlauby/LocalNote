@@ -13,7 +13,7 @@ export const appRoutes: Route[] = [
   },
 
   {
-    path: 'notes/:id',
+    path: 'noteEditorDetail/:id',
     loadComponent: () => import('@local-note/note-editor-detail').then((m) => m.NoteEditorDetail),
   },
 
