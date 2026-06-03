@@ -6,7 +6,7 @@
     "target": "es2022",
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "types": ["jest", "node", "@angular/core/testing"]
+    "types": ["vitest/globals", "node", "@angular/core/testing"]
   },
   "include": [
     "src/**/*.spec.ts",
