@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { NoteEditorDetail } from './note-editor-detail';
 
 describe('NoteEditorDetail', () => {
@@ -8,6 +9,7 @@ describe('NoteEditorDetail', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NoteEditorDetail],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NoteEditorDetail);

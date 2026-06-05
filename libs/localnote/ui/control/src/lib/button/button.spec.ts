@@ -23,7 +23,7 @@ describe('Button', () => {
 
   describe('Outputs', () => {
     it('should emit clicked event when button is clicked', () => {
-      const spy = jest.spyOn(component.clicked, 'emit');
+      const spy = vi.spyOn(component.clicked, 'emit');
       const btn = fixture.nativeElement.querySelector('button');
       btn.click();
 
@@ -72,7 +72,7 @@ describe('Button', () => {
       fixture.componentRef.setInput('disabled', true);
       fixture.detectChanges();
 
-      const spy = jest.spyOn(component.clicked, 'emit');
+      const spy = vi.spyOn(component.clicked, 'emit');
       const btn = fixture.nativeElement.querySelector('button');
       btn.click();
 

@@ -1,7 +1,7 @@
 {
   "extends": "../../../../tsconfig.base.json",
   "compilerOptions": {
-      "types": ["node", "jest", "@angular/core/testing"],
+      "types": ["node", "vitest/globals", "@angular/core/testing"],
 
 
   //"ignoreDeprecations": "6.0",
