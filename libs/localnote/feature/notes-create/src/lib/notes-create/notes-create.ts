@@ -5,7 +5,7 @@ import { NoteSignalStore } from '@local-note/note.model.ts';
 import { Note } from '@local-note/note.model.ts';
 
 @Component({
-  selector: 'lib-notes-create',
+  selector: 'notes-create',
   templateUrl: './notes-create.html',
   styleUrl: './notes-create.css',
   imports: [Button],
@@ -22,6 +22,7 @@ export class NotesCreate {
       content: '',
       parentId: null,
       createdAt: new Date(),
+      type: 'note'
     };
 
     this.store.createNote(newNote);

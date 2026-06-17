@@ -13,13 +13,18 @@
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    //"ignoreDeprecations": "6.0",
     "paths": {
       "@local-note/dashboard": ["./libs/localnote/dashboard/src/index.ts"],
       "@local-note/button": ["./libs/localnote/ui/control/src/index.ts"],
       "@local-note/notes-create": ["./libs/localnote/feature/notes-create/src/index.ts"],
-      "@local-note/note.model.ts": ["./libs/localnote/data-access/models/note.model.ts/src/index.ts"],
-      "@local-note/note-editor-detail": ["./libs/localnote/feature/note-editor-detail/src/index.ts"]
+      "@local-note/note.model.ts": [
+        "./libs/localnote/data-access/models/note.model.ts/src/index.ts"
+      ],
+      "@local-note/note-editor-detail": [
+        "./libs/localnote/feature/note-editor-detail/src/index.ts"
+      ],
+      "@local-note/create-folder": ["./libs/localnote/feature/create-folder/src/index.ts"],
+      "@local-note/tree-folder": ["./localnote/feature/tree-folder/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

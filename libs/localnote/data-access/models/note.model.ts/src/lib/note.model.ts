@@ -2,6 +2,7 @@ export interface Note {
   id: string;
   title: string;
   content: string;
-  parentId: string | null;  
+  parentId: string | null;
   createdAt: Date;
+  type: 'note' | 'folder';
 }

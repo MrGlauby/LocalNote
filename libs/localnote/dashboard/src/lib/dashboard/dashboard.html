@@ -1,22 +1,42 @@
 <main class="dashboard-wrapper">
   <h1>Dashboard</h1>
 
-  <p>Anzahl der Notizen: {{ noteCount() }}</p>
-
-  <nav aria-label="Notes">
     <ul>
       @for (note of notes(); track note.id) {
-      <li>
+      <li
+        draggable="true"
+        (dragstart)="onDragStart($event, note.id)"
+        (dragover)="onDragOver($event)"
+        (drop)="onDrop($event, note)"
+      >
+        @if (note.type === 'folder') {
+        <!-- Toggle Button nutzt openedFolderIds -->
+        <button (click)="toggleFolder(note.id)">
+          {{ openedFolderIds().includes(note.id) ? '▼' : '▶' }}
+        </button>
+        <strong>📁 {{ note.title }}</strong>
+
+        <!-- Kinder anzeigen, wenn ID im Signal ist -->
+        @if (openedFolderIds().includes(note.id)) {
+        <ul>
+          @for (child of store.getChildren()(note.id); track child.id) {
+          <li>
+            <a [routerLink]="['/noteEditorDetail', child.id]">📄 {{ child.title }}</a>
+          </li>
+          }
+        </ul>
+        } } @else {
         <a
           [routerLink]="['/noteEditorDetail', note.id]"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
         >
-          {{ note.title || 'Unbekannte Notiz'}}
+          📄 {{ note.title || 'Unbekannte Notiz' }}
         </a>
+        }
       </li>
       }
     </ul>
-  </nav>
-  <lib-notes-create></lib-notes-create>
+  <notes-create></notes-create>
+  <create-folder></create-folder>
 </main>
