@@ -39,4 +39,16 @@
     </ul>
   <notes-create></notes-create>
   <create-folder></create-folder>
+
+    @if(holidayService.holidayResource.isLoading()){
+      <p>Lädt...</p>
+
+    } @else {
+      <ul>
+        @for (h of holidayService.holidayResource.value(); track h.date) {
+          <li>{{h.date}}: {{h.localName}}</li>
+        }
+      </ul>
+    }
+
 </main>

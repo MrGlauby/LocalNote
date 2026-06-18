@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { NoteSignalStore } from '@local-note/note.model.ts';
 import { NotesCreate } from '@local-note/notes-create';
 import { CreateFolder } from '@local-note/create-folder';
+import { HolidayService } from '@local-note/data-access';
 
 @Component({
   selector: 'lib-dashboard',
@@ -12,6 +13,7 @@ import { CreateFolder } from '@local-note/create-folder';
 })
 export class Dashboard {
   store = inject(NoteSignalStore);
+  holidayService = inject(HolidayService);
 
   notes = this.store.rootNotes;
   noteCount = this.store.noteCount;
