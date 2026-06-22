@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NoteSignalStore } from '@local-note/note.model.ts';
 import { NotesCreate } from '@local-note/notes-create';
@@ -16,7 +16,9 @@ export class Dashboard {
   holidayService = inject(HolidayService);
 
   notes = this.store.rootNotes;
-  noteCount = this.store.noteCount;
+
+  noteItems = computed(() => this.notes().filter((n) => n.type === 'note'));
+  folderItems = computed(() => this.notes().filter((n) => n.type === 'folder'));
 
   openedFolderIds = signal<string[]>([]);
 

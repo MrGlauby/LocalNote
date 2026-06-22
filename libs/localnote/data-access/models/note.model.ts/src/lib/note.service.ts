@@ -1,4 +1,4 @@
-import { Injectable, resource } from '@angular/core';
+import { Injectable, resource, signal } from '@angular/core';
 
 export interface Holiday {
   date: string;
@@ -8,14 +8,22 @@ export interface Holiday {
 }
 
 @Injectable({ providedIn: 'root' })
+
 export class HolidayService {
-  
+
+
+  year = signal('2025');
+  country = signal('DE');
+
   holidayResource = resource({
-    loader: async () => {
-      const response = await fetch('https://date.nager.at/api/v3/PublicHolidays/2025/DE');
-      return (await response.json()) as Holiday[];
+      params: () => ({ y: this.year(), c: this.country() }), 
+
+    loader: async ({params}) => {
+      const response = await fetch(`https://date.nager.at/api/v3/PublicHolidays/${params.y}/${params.c}`);
+      if (!response.ok) throw new Error('ERROR');
+      return await response.json();
     },
   });
-
-  constructor() {}
 }
+
+

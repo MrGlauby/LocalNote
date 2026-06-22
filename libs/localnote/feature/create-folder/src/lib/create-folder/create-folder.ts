@@ -12,7 +12,7 @@ export class CreateFolder {
   readonly store = inject(NoteSignalStore);
 
   createFolder() {
-    const folderName = prompt('Wie soll der Ordner heißen?');
+    const folderName = prompt('Name?');
 
     if (folderName && folderName.trim().length > 0) {
       const newFolderAsNote: Note = {
@@ -26,7 +26,7 @@ export class CreateFolder {
 
       this.store.createNote(newFolderAsNote);
 
-      console.log('Ordner-Logik in Comp erledigt:', folderName);
+      console.log('Create Folder - Sucess', folderName);
     }
   }
 }

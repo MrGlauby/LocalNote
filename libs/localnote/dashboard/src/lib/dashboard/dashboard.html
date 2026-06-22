@@ -1,54 +1,85 @@
 <main class="dashboard-wrapper">
   <h1>Dashboard</h1>
+  <div class="wrapper-buttonCreate">
+    <div class="buttonCreate">
+      <create-folder></create-folder>
+    </div>
 
-    <ul>
-      @for (note of notes(); track note.id) {
-      <li
-        draggable="true"
-        (dragstart)="onDragStart($event, note.id)"
-        (dragover)="onDragOver($event)"
-        (drop)="onDrop($event, note)"
-      >
-        @if (note.type === 'folder') {
-        <!-- Toggle Button nutzt openedFolderIds -->
-        <button (click)="toggleFolder(note.id)">
-          {{ openedFolderIds().includes(note.id) ? '▼' : '▶' }}
-        </button>
-        <strong>📁 {{ note.title }}</strong>
+    <div class="notesCreate">
+      <notes-create></notes-create>
+    </div>
+  </div>
+      <hr />
 
-        <!-- Kinder anzeigen, wenn ID im Signal ist -->
-        @if (openedFolderIds().includes(note.id)) {
-        <ul>
-          @for (child of store.getChildren()(note.id); track child.id) {
-          <li>
-            <a [routerLink]="['/noteEditorDetail', child.id]">📄 {{ child.title }}</a>
-          </li>
-          }
-        </ul>
-        } } @else {
-        <a
-          [routerLink]="['/noteEditorDetail', note.id]"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-        >
-          📄 {{ note.title || 'Unbekannte Notiz' }}
-        </a>
-        }
-      </li>
-      }
-    </ul>
-  <notes-create></notes-create>
-  <create-folder></create-folder>
+  <div class="dashboard-columns">
+    <section class="column column-notes">
 
-    @if(holidayService.holidayResource.isLoading()){
-      <p>Lädt...</p>
-
-    } @else {
+      <h2>Notes...</h2>
       <ul>
-        @for (h of holidayService.holidayResource.value(); track h.date) {
-          <li>{{h.date}}: {{h.localName}}</li>
+        @for (note of noteItems(); track note.id) {
+        <li
+          draggable="true"
+          (dragstart)="onDragStart($event, note.id)"
+          (dragover)="onDragOver($event)"
+          (drop)="onDrop($event, note)"
+        >
+          <a
+            [routerLink]="['/noteEditorDetail', note.id]"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+          >
+            📄 {{ note.title || 'Unbekannte Notiz' }}
+          </a>
+        </li>
         }
       </ul>
-    }
+    </section>
 
+    <section class="column column-folders">
+      <h2>Folder</h2>
+      <ul>
+        @for (folder of folderItems(); track folder.id) {
+        <li
+          draggable="true"
+          (dragstart)="onDragStart($event, folder.id)"
+          (dragover)="onDragOver($event)"
+          (drop)="onDrop($event, folder)"
+        >
+          <button (click)="toggleFolder(folder.id)">
+            {{ openedFolderIds().includes(folder.id) ? '▼' : '▶' }}
+          </button>
+          <strong>📁 {{ folder.title }}</strong>
+
+          @if (openedFolderIds().includes(folder.id)) {
+          <ul>
+            @for (child of store.getChildren()(folder.id); track child.id) {
+            <li>
+              <a [routerLink]="['/noteEditorDetail', child.id]">📄 {{ child.title }}</a>
+            </li>
+            }
+          </ul>
+          }
+        </li>
+        }
+      </ul>
+    </section>
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <hr />
+  <section class="holidays">
+    <h2>Feiertage</h2>
+    @if(holidayService.holidayResource.isLoading()){
+    <p>Lädt...</p>
+    } @else {
+    <ul>
+      @for (h of holidayService.holidayResource.value(); track h.date) {
+      <li>{{h.date}}: {{h.localName}}</li>
+      }
+    </ul>
+    }
+  </section>
 </main>

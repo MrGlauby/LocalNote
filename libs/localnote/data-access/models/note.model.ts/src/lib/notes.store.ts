@@ -63,11 +63,8 @@ export const NoteSignalStore = signalStore(
 
   withHooks({
     onInit(store, storage = inject(StorageService)) {
-      // 1. Initial laden
       store.loadFromStorage();
 
-      // 2. Automatischer Speicher-Effekt (Autosave)
-      // Jedes Mal wenn sich store.notes() ändert, wird dieser Code ausgeführt
       effect(() => {
         const notes = store.notes();
         if (!store.isLoading()) {

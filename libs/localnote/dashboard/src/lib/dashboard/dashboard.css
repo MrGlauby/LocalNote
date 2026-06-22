@@ -1,0 +1,47 @@
+.dashboard-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.wrapper-buttonCreate{
+  display: flex;
+
+}
+
+.buttonCreate{
+  margin: 1%
+}
+
+.notesCreate{
+margin: 1%;
+}
+
+
+.buttonCreate{
+  padding: 0 0 20px;
+}
+
+
+.dashboard-columns {
+  display: flex;
+  gap: 2rem;
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.column li {
+  padding: 4px 0;
+}
+
+.holidays {
+  margin-top: 2rem;
+}
